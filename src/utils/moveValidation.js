@@ -1,9 +1,11 @@
-// utils/moveValidation.js
 export const isValidMove = (piece, start, end, board) => {
     const [startRow, startCol] = start;
     const [endRow, endCol] = end;
   
     if (!piece) return false;
+  
+    const destinationPiece = board[endRow][endCol];
+    if (isSameColor(piece, destinationPiece)) return false;
   
     const rowDiff = Math.abs(startRow - endRow);
     const colDiff = Math.abs(startCol - endCol);
@@ -24,13 +26,25 @@ export const isValidMove = (piece, start, end, board) => {
         return validateBishopMove(start, end, board);
       case "♕":
       case "♛": // Queen
-        return validateRookMove(start, end, board) || validateBishopMove(start, end, board);
+        return (
+          validateRookMove(start, end, board) || validateBishopMove(start, end, board)
+        );
       case "♔":
       case "♚": // King
         return rowDiff <= 1 && colDiff <= 1;
       default:
         return false;
     }
+  };
+  
+  const isSameColor = (piece1, piece2) => {
+    if (!piece1 || !piece2) return false;
+    const whitePieces = "♙♖♘♗♕♔";
+    const blackPieces = "♟♜♞♝♛♚";
+    return (
+      (whitePieces.includes(piece1) && whitePieces.includes(piece2)) ||
+      (blackPieces.includes(piece1) && blackPieces.includes(piece2))
+    );
   };
   
   const validatePawnMove = (start, end, board, color) => {
