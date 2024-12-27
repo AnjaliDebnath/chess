@@ -3,12 +3,30 @@ import useChessboard from "../hooks/useChessBoard";
 import "./Board.css";
 
 const Chessboard = () => {
-  const { board, turn, selectedSquare, predictedMoves, handleSquareClick } = useChessboard();
+  const {
+    board,
+    turn,
+    selectedSquare,
+    predictedMoves,
+    handleSquareClick,
+    gameOver,
+    winner,
+  } = useChessboard();
 
   return (
-    <div>
-      <h1>CHESS MASTER</h1>
-      <h1>Turn: {turn.charAt(0).toUpperCase() + turn.slice(1)}</h1>
+    <div className="header-container">
+      <h1 className="chess-master-title">CHESS MASTER</h1>
+      {gameOver ? (
+        <div className="game-over">
+          <h2>Game Over!</h2>
+          <p>{winner} Wins!</p>
+        </div>
+      ) : (
+        <div className="turn-box">
+          <h2>Turn :{turn.charAt(0).toUpperCase() + turn.slice(1)}</h2>
+        </div>
+      )}
+
       <div className="chessboard">
         {board.map((row, rowIndex) =>
           row.map((piece, colIndex) => {
