@@ -7,6 +7,7 @@ const Chessboard = () => {
 
   return (
     <div>
+      <h1>CHESS MASTER</h1>
       <h1>Turn: {turn.charAt(0).toUpperCase() + turn.slice(1)}</h1>
       <div className="chessboard">
         {board.map((row, rowIndex) =>
