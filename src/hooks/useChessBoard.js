@@ -20,6 +20,15 @@ const useChessboard = () => {
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
 
+  const resetGame=()=>{
+    setBoard(initialBoard);
+    setSelectedSquare(null);
+    setPredictedMoves([]);
+    setTurn("white");
+    setGameOver(false);
+    setWinner(null);
+  };
+
   const isPieceBelongsToPlayer = (piece) => {
     if (!piece) return false;
     return turn === "white"
@@ -84,6 +93,7 @@ const useChessboard = () => {
     predictedMoves,
     gameOver,
     winner,
+    resetGame
   };
 };
 

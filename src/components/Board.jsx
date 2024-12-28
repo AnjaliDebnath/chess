@@ -11,6 +11,8 @@ const Chessboard = () => {
     handleSquareClick,
     gameOver,
     winner,
+    resetGame,
+    
   } = useChessboard();
 
   return (
@@ -26,6 +28,7 @@ const Chessboard = () => {
           <h2>Turn :{turn.charAt(0).toUpperCase() + turn.slice(1)}</h2>
         </div>
       )}
+      <button onClick={resetGame} className="reset-button">Reset Game</button>
 
       <div className="chessboard">
         {board.map((row, rowIndex) =>

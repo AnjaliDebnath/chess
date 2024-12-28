@@ -1,23 +1,23 @@
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ececec;
-  flex-direction: column;
-}
-
-h1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ececec;
+    flex-direction: column;
+  }
+  
+  h1 {
   margin: 0;
   margin-bottom: 20px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
 h1:first-of-type {
-  font-size: 3rem; /* Larger size for the main heading */
+  font-size: 3rem; 
   color: #333;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   background: linear-gradient(90deg, #ff8c00, #ff0080);
@@ -29,92 +29,97 @@ h1:first-of-type {
 }
 
 h1:nth-of-type(2) {
-  font-size: 1.5rem; /* Smaller size for the Turn text */
+  font-size: 1.5rem; 
   color: #555;
   margin-top: 10px;
 }
+  
+  .chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 400px;
+    height: 400px;
+  }
+  
+  .square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .square.white {
+    background-color: #f0d9b5;
+  }
+  
+  .square.black {
+    background-color: #b58863;
+  }
+  
+  .square.selected {
+    outline: 2px solid yellow;
+  }
+  
+  .piece {
+    font-size: 2rem;
+  }
+  
+  .predicted-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+  }
 
-.chessboard {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  width: 400px;
-  height: 400px;
-}
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  } 
+  
+  .game-over {
+    text-align: center;
+    color: #ffffff; 
+    background-color: #e20d0d; 
+    margin :20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .turn-box {
+    text-align: center;
+    color: #080303; 
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    margin:10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .turn-box h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    
+  }
+  
+  .reset-button{
+    margin:10px;
+    text-align: center;
+    color: #080303; 
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-.square {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.square.white {
-  background-color: #f0d9b5;
-}
-
-.square.black {
-  background-color: #b58863;
-}
-
-.square.selected {
-  outline: 2px solid yellow;
-}
-
-.piece {
-  font-size: 2rem;
-}
-
-.predicted-dot {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 20px;
-}
-
-.header-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.chess-master-title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #4a90e2; /* Replace with the same color as "CHESS MASTER" */
-  margin-bottom: 10px;
-}
-
-.game-over {
-  text-align: center;
-  color: #d32f2f; /* Red color for "Game Over" */
-  background-color: #ffebee; /* Light red background */
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.turn-box {
-  text-align: center;
-  color: #080303; /* White text color */
-  background-color: #ffffff; /* Match the "CHESS MASTER" color */
-  padding: 10px 20px;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.turn-box h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  /* padding:20px */
-}
-
-/* Media Query for Tablets */
+  /* Media Query for Tablets */
 @media (max-width: 768px) {
   .chessboard {
     width: 300px;
@@ -164,3 +169,5 @@ h1:nth-of-type(2) {
     bottom: 10px;
   }
 }
+  
+  
